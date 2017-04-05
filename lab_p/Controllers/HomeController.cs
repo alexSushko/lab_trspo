@@ -10,9 +10,7 @@ namespace lab_p.Controllers
     {
         public ActionResult Index()
         {
-            ViewBag.Title = "Home Page";
-
-            return View();
+            return Redirect("~/Static/");
         }
     }
 }

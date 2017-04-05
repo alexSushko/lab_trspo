@@ -1,0 +1,89 @@
+﻿
+<!DOCTYPE html>
+<html ng-app="app">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+   <link href="/Content/Site.css" rel="stylesheet" />
+
+    <link href="/Content/bootstrap.min.css" rel="stylesheet" />
+</head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<body ng-controller="matrixController">
+
+    <div class="container body-content">
+        <div class="container col-md-offset-1">
+            <div >
+                <div class="col-md-5">
+                    <div class="top-table">
+                    <input class="btn btn-default" type="file" id="file1" name="file" multiple ng-files="getTheFiles($files)" />
+
+                    <input class="btn btn-default" type="button" ng-click="uploadFiles()" value="Upload" />
+                        </div>
+                    <table class="table">
+                        <tr>
+                            <th>Num</th>
+                            <th>Filename</th>
+                            <th>Matrix A</th>
+                            <th>Matrix B</th>
+                            <th>Result</th>
+                            <th>Time</th>
+                        </tr>
+                        <tr ng-repeat="result in data">
+                            <td>{{$index}}</td>
+                            <td>{{result.data[0].filename}}</td>
+
+                            <td>{{result.data[0].countsOfRowA +'*'+ result.data[0].countsOfItemsA}}</td>
+
+                            <td>{{result.data[0].countsOfRowB +'*'+  result.data[0].countsOfItemsB}}</td>
+                            <td>{{result.data[0].matrix}}</td>
+                            <td>{{result.time}}</td>
+                        </tr>
+                    </table>
+                    </div>
+                    <div class="col-md-5">
+                        <div class="top-table">
+                            <button class="btn btn-default" ng-click="getMatrix()">Files on server</button>
+                            </div>
+                            <table class="table">
+                                <tr>
+                                    <th>Num</th>
+                                    <th>Filename</th>
+                                    <th>Matrix A</th>
+                                    <th>Matrix B</th>
+                                    <th>Result</th>
+                                    <th>Time</th>
+                                </tr>
+                                <tr ng-repeat="result in data1">
+                                    <td>{{$index}}</td>
+                                    <td>{{result.data[0].filename}}</td>
+
+                                    <td>{{result.data[0].countsOfRowA +'*'+ result.data[0].countsOfItemsA}}</td>
+
+                                    <td>{{result.data[0].countsOfRowB +'*'+  result.data[0].countsOfItemsB}}</td>
+                                    <td>{{result.data[0].matrix}}</td>
+                                    <td>{{result.time}}</td>
+                                </tr>
+                            </table>
+                        </div>
+                    {{data}}
+                    {{data[0].data[0].filename}}
+                </div>
+        </div>
+        <hr />
+        <footer class="navbar-fixed-bottom">
+            <p>&copy; Sushko Oleksand </p>
+        </footer>
+    </div>
+
+   <script src="/Scripts/jquery-1.10.2.min.js"></script>
+    <script src="/Scripts/bootstrap.min.js"></script>
+    <script src="/Scripts/angular.min.js"></script>
+    <script src="/Scripts/oi.file.js"></script>
+    <script src="/Scripts/app/Module.js"></script>
+    <script src="/Scripts/app/Service.js"></script>
+    <script src="/Scripts/app/Controllers.js"></script>
+</body>
+</html>
